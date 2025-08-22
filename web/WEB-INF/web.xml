@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <display-name>LibraryManagement</display-name>
+    <!-- ================== SERVLETS ================== -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    
+<servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>controller.RegisterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+</servlet-mapping>
+
+    
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>controller.AddBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/AddBookServlet</url-pattern>
+    </servlet-mapping>
+    
+<servlet>
+    <servlet-name>ViewBooksServlet</servlet-name>
+    <servlet-class>controller.ViewBooksServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewBooksServlet</servlet-name>
+    <url-pattern>/ViewBooksServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>SearchBookServlet</servlet-name>
+    <servlet-class>controller.SearchBookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>SearchBookServlet</servlet-name>
+    <url-pattern>/SearchBookServlet</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>IssueBookServlet</servlet-name>
+    <servlet-class>controller.IssueBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>IssueBookServlet</servlet-name>
+    <url-pattern>/IssueBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>EditBookServlet</servlet-name>
+    <servlet-class>controller.EditBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>EditBookServlet</servlet-name>
+    <url-pattern>/EditBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <servlet-class>controller.DeleteBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <url-pattern>/DeleteBookServlet</url-pattern>
+</servlet-mapping>
+    <servlet>
+        
+    <servlet-name>ViewIssuedBooksServlet</servlet-name>
+    <servlet-class>controller.ViewIssuedBooksServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewIssuedBooksServlet</servlet-name>
+    <url-pattern>/ViewIssuedBooksServlet</url-pattern>
+</servlet-mapping>
+
+  <servlet>
+        <servlet-name>MyBooksServlet</servlet-name>
+        <servlet-class>controller.MyBooksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyBooksServlet</servlet-name>
+        <url-pattern>/MyBooksServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    <servlet-name>ReturnBookServlet</servlet-name>
+    <servlet-class>controller.ReturnBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ReturnBookServlet</servlet-name>
+    <url-pattern>/ReturnBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>RenewBookServlet</servlet-name>
+    <servlet-class>controller.RenewBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RenewBookServlet</servlet-name>
+    <url-pattern>/RenewBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ReserveBookServlet</servlet-name>
+    <servlet-class>controller.ReserveBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ReserveBookServlet</servlet-name>
+    <url-pattern>/ReserveBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ViewReservationsServlet</servlet-name>
+    <servlet-class>controller.ViewReservationsServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewReservationsServlet</servlet-name>
+    <url-pattern>/ViewReservationsServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>controller.LogoutServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+</servlet-mapping>
+
+
+    <!-- ================== WELCOME PAGE ================== -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
