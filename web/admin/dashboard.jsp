@@ -48,7 +48,7 @@
     <h3 class="text-center mb-4">️ Admin Dashboard</h3>
     <div class="row g-4">
         
-        <!-- Add Book -->
+        <!--Book add karne ka section  -->
         <div class="col-md-3">
             <div class="card card-custom text-center p-4 bg-light">
                 <h5 class="text-primary">➕ Add Book</h5>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <!-- View Books -->
+        <!-- View Books ka logic -->
         <div class="col-md-3">
             <div class="card card-custom text-center p-4 bg-light">
                 <h5 class="text-success">📖 View Books</h5>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <!-- View Issued Books -->
+        <!-- View Issued Books ka logic-->
         <div class="col-md-3">
             <div class="card card-custom text-center p-4 bg-light">
                 <h5 class="text-danger">📦 Issued Books</h5>
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <!-- View Reservations -->
+        <!-- View Reservations ka logic-->
         <div class="col-md-3">
             <div class="card card-custom text-center p-4 bg-light">
                 <h5 class="text-warning">📌 Reservations</h5>

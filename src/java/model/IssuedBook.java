@@ -3,11 +3,11 @@ package model;
 import java.time.LocalDate;
 
 public class IssuedBook {
-    private int id;               // issue record id (from issued_books.id)
+    private int id;               
     private String bookName;
     private String studentName;
     private LocalDate issueDate;
-    private LocalDate returnDate; // <-- add this
+    private LocalDate returnDate; 
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -21,6 +21,6 @@ public class IssuedBook {
     public LocalDate getIssueDate() { return issueDate; }
     public void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
 
-    public LocalDate getReturnDate() { return returnDate; }        // <-- new getter
-    public void setReturnDate(LocalDate returnDate) { this.returnDate = returnDate; } // <-- new setter
+    public LocalDate getReturnDate() { return returnDate; }      
+    public void setReturnDate(LocalDate returnDate) { this.returnDate = returnDate; } 
 }

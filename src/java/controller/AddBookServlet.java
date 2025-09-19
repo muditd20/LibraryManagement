@@ -12,7 +12,6 @@ public class AddBookServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // If accessed directly via GET, redirect to book list
         resp.sendRedirect(req.getContextPath() + "/ViewBooksServlet");
     }
 

@@ -17,13 +17,11 @@ public class DeleteBookServlet extends HttpServlet {
                 int id = Integer.parseInt(idParam);
                 BookDAO dao = new BookDAO();
                 dao.deleteBook(id);
-                // ✅ Redirect to the correct ViewBookServlet path
                 response.sendRedirect(request.getContextPath() + "/ViewBooksServlet");
             } catch (NumberFormatException | SQLException e) {
                 throw new ServletException(e);
             }
         } else {
-            // If no ID is passed
             response.sendRedirect(request.getContextPath() + "/ViewBooksServlet");
         }
     }

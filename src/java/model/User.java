@@ -16,7 +16,6 @@ private String membershipNo;
         this.password = password;
     }
 
-    // Getters and setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }
@@ -28,9 +27,6 @@ private String membershipNo;
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    /**
-     * @return the membershipNo
-     */
     public String getMembershipNo() {
         return membershipNo;
     }

@@ -14,7 +14,6 @@ public class IssueBookServlet extends HttpServlet {
         int studentId = (int) session.getAttribute("studentId");  // login ke time store kiya hoga
 
         try (Connection con = DBConnection.getConnection()) {
-            // 1. check if book is available
             PreparedStatement ps1 = con.prepareStatement("SELECT quantity FROM books WHERE id=?");
             ps1.setInt(1, bookId);
             ResultSet rs = ps1.executeQuery();
@@ -23,7 +22,6 @@ public class IssueBookServlet extends HttpServlet {
                 int qty = rs.getInt("quantity");
 
                 if (qty > 0) {
-                    // 2. insert into issued_books
                     PreparedStatement ps2 = con.prepareStatement(
                         "INSERT INTO issued_books(book_id, student_id, issue_date) VALUES(?, ?, NOW())"
                     );
@@ -32,7 +30,6 @@ public class IssueBookServlet extends HttpServlet {
                     int rows = ps2.executeUpdate();
 
                     if (rows > 0) {
-                        // 3. decrease quantity in books table
                         PreparedStatement ps3 = con.prepareStatement("UPDATE books SET quantity = quantity - 1 WHERE id=?");
                         ps3.setInt(1, bookId);
                         ps3.executeUpdate();
@@ -50,7 +47,6 @@ public class IssueBookServlet extends HttpServlet {
             throw new ServletException(e);
         }
 
-        // Forward to confirmation page
 req.getRequestDispatcher("student/issue_confirmation.jsp").forward(req, resp);
     }
 }

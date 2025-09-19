@@ -8,7 +8,6 @@ import java.util.List;
 
 public class UserDAO {
 
-    // Register user
     public boolean registerUser(User user) throws SQLException {
         String sql = "INSERT INTO users (name, email, role, password, membership_no) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
@@ -22,7 +21,6 @@ public class UserDAO {
         }
     }
 
-    // Login user (membership_no + password + role check)
     public User loginUser(String membership_no, String password, String role) throws SQLException {
         String sql = "SELECT * FROM users WHERE membership_no = ? AND password = ? AND role = ?";
         try (Connection conn = DBConnection.getConnection();
@@ -46,7 +44,6 @@ public class UserDAO {
         return null;
     }
 
-    // Get all students
     public List<User> getAllStudents() throws SQLException {
         List<User> list = new ArrayList<>();
         String sql = "SELECT * FROM users WHERE role = 'STUDENT'";

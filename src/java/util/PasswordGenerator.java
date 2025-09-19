@@ -1,4 +1,3 @@
-// util/PasswordGenerator.java
 package util;
 import java.security.SecureRandom;
 

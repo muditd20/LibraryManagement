@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class EditBookServlet extends HttpServlet {
 
-    // Show edit form
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,7 +29,6 @@ public class EditBookServlet extends HttpServlet {
         }
     }
 
-    // Update book
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

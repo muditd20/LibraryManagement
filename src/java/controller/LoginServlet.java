@@ -22,16 +22,14 @@ public class LoginServlet extends HttpServlet {
 
             if (user != null) {
                 HttpSession session = req.getSession();
-                session.setAttribute("user", user);   // full user object
-                session.setAttribute("studentId", user.getId()); // agar STUDENT hai toh useful
-
-                // Redirect based on role
+                session.setAttribute("user", user); 
+                session.setAttribute("studentId", user.getId()); 
+                
                 if ("ADMIN".equalsIgnoreCase(user.getRole())) {
                     resp.sendRedirect("admin/dashboard.jsp");
                 } else if ("STUDENT".equalsIgnoreCase(user.getRole())) {
                     resp.sendRedirect("student/home.jsp");
                 } else {
-                    // agar koi aur role aa gaya toh
                     req.setAttribute("error", "Invalid role selected.");
                     req.getRequestDispatcher("index.jsp").forward(req, resp);
                 }

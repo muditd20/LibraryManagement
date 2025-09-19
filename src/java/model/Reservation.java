@@ -10,7 +10,6 @@ public class Reservation {
     private String bookName;
     private String studentName;
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

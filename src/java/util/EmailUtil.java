@@ -1,4 +1,3 @@
-// util/EmailUtil.java
 package util;
 
 import java.util.Properties;

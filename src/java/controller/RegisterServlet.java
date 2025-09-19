@@ -18,7 +18,6 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
     String email = req.getParameter("email");
     String role = req.getParameter("role");
 
-    // VALIDATION
     if (name == null || name.isEmpty() || email == null || email.isEmpty()) {
         req.setAttribute("error", "All fields are required.");
         req.getRequestDispatcher("register.jsp").forward(req, resp);
@@ -34,12 +33,12 @@ String generatedPassword = PasswordGenerator.generate();
     user.setEmail(email);
     user.setRole(role);
     user.setMembershipNo(membershipNo);
-    user.setPassword(generatedPassword); // store plain for now (hash in production)
+    user.setPassword(generatedPassword); 
 
     UserDAO dao = new UserDAO();
     try {
         if (dao.registerUser(user)) {
-            // Send email
+            // Send email karne ke liye
             String subject = "Library Registration Successful";
             String body = "Dear " + name + ",\n\n" +
                           "Your registration is successful.\n" +
@@ -58,6 +57,4 @@ String generatedPassword = PasswordGenerator.generate();
         throw new ServletException(e);
     }
 }
-
-   
 }

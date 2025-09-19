@@ -35,17 +35,15 @@ ResultSet rs = ps.executeQuery();
 
 while (rs.next()) {
     IssuedBook ib = new IssuedBook();
-    ib.setId(rs.getInt("issue_id"));   // <-- use alias, not "id"
+    ib.setId(rs.getInt("issue_id")); 
     ib.setBookName(rs.getString("book_name"));
      LocalDate issueDate = rs.getDate("issue_date").toLocalDate();
     ib.setIssueDate(issueDate);
 
     java.sql.Date rd = rs.getDate("return_date");
     if (rd != null) {
-        // agar DB me return_date hai toh wahi show karega
         ib.setReturnDate(rd.toLocalDate());
     } else {
-        // otherwise issue date + 14 din ko due-date man lo
         ib.setReturnDate(issueDate.plusDays(14));
     }
 
