@@ -15,10 +15,12 @@ public class ViewIssuedBooksServlet extends HttpServlet {
         List<IssuedBook> issuedList = new ArrayList<>();
 
         try (Connection con = DBConnection.getConnection()) {
-            String sql = "SELECT ib.id, b.name AS book_name, b.author, u.name AS student_name, ib.issue_date\n" +
-                            "FROM issued_books ib\n" +
-                            "JOIN books b ON ib.book_id = b.id\n" +
-                            "JOIN users u ON ib.student_id = u.id";
+            String sql = "SELECT ib.id, b.name AS book_name, u.name AS student_name, " +
+                         "ib.issue_date, ib.return_date " +
+                         "FROM issued_books ib " +
+                         "JOIN books b ON ib.book_id = b.id " +
+                         "JOIN users u ON ib.student_id = u.id";
+
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -28,6 +30,10 @@ public class ViewIssuedBooksServlet extends HttpServlet {
                 ib.setBookName(rs.getString("book_name"));
                 ib.setStudentName(rs.getString("student_name"));
                 ib.setIssueDate(rs.getDate("issue_date").toLocalDate());
+
+                Date returnDate = rs.getDate("return_date");
+                ib.setReturnDate(returnDate != null ? returnDate.toLocalDate() : null);
+
                 issuedList.add(ib);
             }
         } catch (SQLException e) {
@@ -35,6 +41,6 @@ public class ViewIssuedBooksServlet extends HttpServlet {
         }
 
         req.setAttribute("issuedBooks", issuedList);
-req.getRequestDispatcher("/admin/view_issued_books.jsp").forward(req, resp);
+        req.getRequestDispatcher("/admin/view_issued_books.jsp").forward(req, resp);
     }
 }

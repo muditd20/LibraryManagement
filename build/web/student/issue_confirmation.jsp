@@ -59,7 +59,7 @@
         <p class="text-muted">Your book has been successfully issued.</p>
         
         <div class="mt-4">
-            <a href="student_home.jsp" class="btn btn-primary">🏠 Back to Dashboard</a>
+            <a href="student/home.jsp" class="btn btn-primary">🏠 Back to Dashboard</a>
 <a href="${pageContext.request.contextPath}/MyBooksServlet" class="btn btn-outline-secondary ms-2">
     📖 View My Books
 </a>
