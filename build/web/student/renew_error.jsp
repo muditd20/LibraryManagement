@@ -59,8 +59,8 @@
         <p class="text-muted">We could not process your renewal request. Please try again later.</p>
 
         <div class="mt-4">
-            <a href="my_books.jsp" class="btn btn-danger">🔄 Try Again</a>
-            <a href="student_home.jsp" class="btn btn-outline-secondary ms-2">🏠 Dashboard</a>
+            <a href="student/home.jsp" class="btn btn-danger">🔄 Try Again</a>
+            <a href="student/home.jsp" class="btn btn-outline-secondary ms-2">🏠 Dashboard</a>
         </div>
     </div>
 </div>
