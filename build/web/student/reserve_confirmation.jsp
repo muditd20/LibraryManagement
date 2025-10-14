@@ -10,7 +10,7 @@
 <div class="container mt-5">
     <div class="alert alert-success text-center">
         <h4>${message}</h4>
-        <a href="student_home.jsp" class="btn btn-primary mt-3">Back to Home</a>
+        <a href="<%= request.getContextPath() %>/student/home.jsp" class="btn btn-primary mt-3">Back to Home</a>
     </div>
 </div>
 </body>

@@ -80,7 +80,7 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <a href="admin_dashboard.jsp" class="btn btn-secondary">⬅ Back to Dashboard</a>
+                <a href="<%= request.getContextPath() %>/admin/dashboard.jsp" class="btn btn-secondary">⬅ Back to Dashboard</a>
                 <button type="submit" class="btn btn-primary">💾 Update Book</button>
             </div>
         </form>

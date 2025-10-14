@@ -59,8 +59,8 @@
         <p class="text-muted">Your book has been successfully renewed.</p>
 
         <div class="mt-4">
-            <a href="my_books.jsp" class="btn btn-primary">📖 Back to My Books</a>
-            <a href="student_home.jsp" class="btn btn-outline-secondary ms-2">🏠 Dashboard</a>
+            <a href="<%= request.getContextPath() %>/student/home.jsp" class="btn btn-primary">📖 Back to My Books</a>
+            <a href="<%= request.getContextPath() %>/student/home.jsp" class="btn btn-outline-secondary ms-2">🏠 Dashboard</a>
         </div>
     </div>
 </div>
