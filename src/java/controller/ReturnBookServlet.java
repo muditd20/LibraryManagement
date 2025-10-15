@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class ReturnBookServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String issueIdStr = req.getParameter("issue_id");
@@ -20,7 +21,7 @@ public class ReturnBookServlet extends HttpServlet {
         try (Connection con = DBConnection.getConnection()) {
             con.setAutoCommit(false);
 
-            String findSql = "SELECT book_id, student_id FROM issued_books WHERE id=?";
+            String findSql = "SELECT book_id FROM issued_books WHERE id=?";
             PreparedStatement findPs = con.prepareStatement(findSql);
             findPs.setInt(1, issueId);
             ResultSet rs = findPs.executeQuery();
@@ -46,7 +47,8 @@ public class ReturnBookServlet extends HttpServlet {
                 int reservationId = resRs.getInt("id");
                 int reservedStudentId = resRs.getInt("student_id");
 
-                String issueSql = "INSERT INTO issued_books (book_id, student_id, issue_date) VALUES (?, ?, NOW())";
+                String issueSql = "INSERT INTO issued_books (book_id, student_id, issue_date, return_date, is_renewed) " +
+                                  "VALUES (?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 15 DAY), FALSE)";
                 PreparedStatement issuePs = con.prepareStatement(issueSql);
                 issuePs.setInt(1, bookId);
                 issuePs.setInt(2, reservedStudentId);
