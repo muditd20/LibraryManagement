@@ -26,23 +26,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Issue Book</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .form-card {
-            max-width: 600px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
+        body { background-color: #f8f9fa; }
+        .form-card { max-width: 600px; margin: auto; border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-light bg-dark shadow-sm">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h5 text-white">📚 Library Admin</span>
@@ -53,7 +44,6 @@
     </div>
 </nav>
 
-<!-- Issue Book Form -->
 <div class="container mt-5">
     <div class="card form-card p-4">
         <h3 class="text-center text-primary mb-4">📖 Issue Book</h3>

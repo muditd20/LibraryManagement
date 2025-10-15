@@ -5,7 +5,6 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
-
 import model.User;
 import util.DBConnection;
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Reservation {
     private int id;
@@ -27,4 +28,9 @@ public class Reservation {
 
     public String getStudentName() { return studentName; }
     public void setStudentName(String studentName) { this.studentName = studentName; }
+
+    public String getFormattedReservationDate() {
+        if (reservationDate == null) return "";
+        return reservationDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
 }

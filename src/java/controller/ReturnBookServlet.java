@@ -18,7 +18,7 @@ public class ReturnBookServlet extends HttpServlet {
         int issueId = Integer.parseInt(issueIdStr);
 
         try (Connection con = DBConnection.getConnection()) {
-            con.setAutoCommit(false); // transaction start
+            con.setAutoCommit(false);
 
             String findSql = "SELECT book_id, student_id FROM issued_books WHERE id=?";
             PreparedStatement findPs = con.prepareStatement(findSql);
@@ -64,7 +64,7 @@ public class ReturnBookServlet extends HttpServlet {
                 updBookPs.executeUpdate();
             }
 
-            con.commit(); 
+            con.commit();
             resp.sendRedirect("student/my_books.jsp?message=Book+returned+successfully");
 
         } catch (SQLException e) {

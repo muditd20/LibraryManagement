@@ -45,7 +45,7 @@
                 <tr>
                     <td><%= r.getBookName() %></td>
                     <td><%= r.getStudentName() %></td>
-                    <td><%= r.getReservationDate() %></td>
+                    <td><%= r.getFormattedReservationDate() %></td>
                 </tr>
             <% } %>
             </tbody>
@@ -54,9 +54,9 @@
             <p class="text-center text-muted">No reservations yet.</p>
         <% } %>
         <div class="mt-3">
- <a href="<%= request.getContextPath() %>/admin/dashboard.jsp" class="btn btn-secondary">
-                 ⬅ Back to Dashboard
-                    </a>
+            <a href="<%= request.getContextPath() %>/admin/dashboard.jsp" class="btn btn-secondary">
+                ⬅ Back to Dashboard
+            </a>
        </div>
     </div>
 </div>

@@ -18,24 +18,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Issued Books</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .table-container {
-            margin-top: 40px;
-        }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
+        body { background-color: #f8f9fa; }
+        .table-container { margin-top: 40px; }
+        .card { border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar navbar-light bg-dark shadow-sm">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h5 text-white">📚 Library Admin</span>
@@ -46,7 +37,6 @@
     </div>
 </nav>
 
-<!-- Issued Books Table -->
 <div class="container table-container">
     <div class="card p-4">
         <h3 class="text-center text-primary mb-4">📖 Issued Books</h3>
@@ -70,8 +60,8 @@
                 <tr>
                     <td><%= ib.getBookName() %></td>
                     <td><%= ib.getStudentName() %></td>
-                    <td><%= ib.getIssueDate() %></td>
-                    <td><%= ib.getReturnDate() != null ? ib.getReturnDate() : "Not Returned" %></td>
+                    <td><%= ib.getFormattedIssueDate() %></td>
+                    <td><%= ib.getFormattedReturnDate() != null ? ib.getFormattedReturnDate() : "Not Returned" %></td>
                 </tr>
                 <%
                     }
@@ -84,16 +74,14 @@
         <p class="text-center text-muted">No books issued yet.</p>
         <% } %>
 
-        <!-- Back Button -->
         <div class="mt-3">
- <a href="<%= request.getContextPath() %>/admin/dashboard.jsp" class="btn btn-secondary">
-                 ⬅ Back to Dashboard
-                    </a>
-       </div>
+            <a href="<%= request.getContextPath() %>/admin/dashboard.jsp" class="btn btn-secondary">
+                ⬅ Back to Dashboard
+            </a>
+        </div>
     </div>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

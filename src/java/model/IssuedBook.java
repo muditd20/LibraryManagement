@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class IssuedBook {
     private int id;               
@@ -8,6 +9,8 @@ public class IssuedBook {
     private String studentName;
     private LocalDate issueDate;
     private LocalDate returnDate; 
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -23,4 +26,12 @@ public class IssuedBook {
 
     public LocalDate getReturnDate() { return returnDate; }      
     public void setReturnDate(LocalDate returnDate) { this.returnDate = returnDate; } 
+
+       public String getFormattedIssueDate() {
+        return issueDate != null ? issueDate.format(FORMATTER) : "";
+    }
+
+    public String getFormattedReturnDate() {
+        return returnDate != null ? returnDate.format(FORMATTER) : "";
+    }
 }

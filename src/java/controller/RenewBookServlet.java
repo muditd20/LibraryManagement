@@ -7,8 +7,11 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class RenewBookServlet extends HttpServlet {
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User student = (User) req.getSession().getAttribute("user");
@@ -18,11 +21,11 @@ public class RenewBookServlet extends HttpServlet {
         }
 
         int issuedBookId = Integer.parseInt(req.getParameter("issuedBookId"));
-        LocalDate newReturnDate = LocalDate.now().plusDays(7); 
+        LocalDate newReturnDate = LocalDate.now().plusDays(7);
 
         try (Connection con = DBConnection.getConnection()) {
             String checkSql = "SELECT * FROM reservations WHERE book_id = (SELECT book_id FROM issued_books WHERE id = ?) AND student_id != ?";
-           PreparedStatement checkPs = con.prepareStatement(checkSql);
+            PreparedStatement checkPs = con.prepareStatement(checkSql);
             checkPs.setInt(1, issuedBookId);
             checkPs.setInt(2, student.getId());
             ResultSet rs = checkPs.executeQuery();
@@ -41,7 +44,8 @@ public class RenewBookServlet extends HttpServlet {
             int rows = updatePs.executeUpdate();
 
             if (rows > 0) {
-                req.setAttribute("message", "Book renewed successfully. New return date: " + newReturnDate);
+                String formattedDate = newReturnDate.format(FORMATTER);
+                req.setAttribute("message", "Book renewed successfully. New return date: " + formattedDate);
                 req.getRequestDispatcher("student/renew_confirmation.jsp").forward(req, resp);
             } else {
                 req.setAttribute("error", "Failed to renew the book.");
